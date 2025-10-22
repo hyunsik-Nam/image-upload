@@ -10,63 +10,76 @@ Spring Boot 기반의 이미지 업로드 및 관리 서비스입니다. MinIO�
 - 등록이미지 수정
 - 등록이미지 삭제
 
-### 설치 및 실행
+# 설치 및 실행
 
 ## 1. 사전 요구사항
 
-# Java 17 이상
+### Java 17 이상
 
 java -version
 
-# Docker (MinIO 실행용)
+### Docker (MinIO 실행용)
 
 docker --version
 
-# Maven
+### Maven
 
 mvn --version
 
-## 2. MinIO 서버 실행
+# 2. MinIO 서버 실행
 
-# MinIO 컨테이너 실행
+## MinIO 컨테이너 실행
 
-docker run -d \
+```docker run -d \
  --name minio \
  -p 9000:9000 \
  -p 9001:9001 \
  -e MINIO_ROOT_USER=minioadmin \
  -e MINIO_ROOT_PASSWORD=minioadmin \
  minio/minio server /data --console-address ":9001"
+```
 
-# MinIO 웹 콘솔 접속: http://localhost:9001
+## MinIO 웹 콘솔 접속
 
-# 로그인: minioadmin / minioadmin
+http://localhost:9001
 
-## 3. 애플리케이션 실행
+## 로그인
 
-# 프로젝트 클론
+minioadmin / minioadmin
 
-git clone https://github.com/yourusername/image-upload-service.git
+# 3. 애플리케이션 실행
+
+## 프로젝트 클론
+
+```git clone https://github.com/yourusername/image-upload-service.git
 cd image-upload-service
+```
 
-# 의존성 설치 및 실행
+## 의존성 설치 및 실행
 
-mvn clean install
+```mvn clean install
 mvn spring-boot:run
+```
 
-# 애플리케이션 접속: http://localhost:8080
+## 애플리케이션 접속
 
-## 4. 개발 환경 확인
+http://localhost:8080
 
-# H2 데이터베이스 콘솔
+# 4. 개발 환경 확인
 
+## H2 데이터베이스 콘솔
+
+```
 http://localhost:8080/h2-console
+```
 
-# Swagger API 문서
+## Swagger API 문서
 
+```
 http://localhost:8080/swagger-ui/index.html
+```
 
-### API 문서
+# API 문서
 
 ## 📤 이미지 업로드
 
@@ -119,7 +132,7 @@ Parameters:
 - id (path): 이미지 ID
 ```
 
-### 응답 예시
+# 응답 예시
 
 ## 성공 응답
 
